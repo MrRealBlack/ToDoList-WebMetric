@@ -7,24 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		115490B22BBEA0280058F877 /* extension+TaskItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115490B12BBEA0280058F877 /* extension+TaskItemModel.swift */; };
-		115490B42BBEA0870058F877 /* extension+TaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115490B32BBEA0870058F877 /* extension+TaskItem.swift */; };
 		115490B72BBEAEB40058F877 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115490B62BBEAEB40058F877 /* ListItemView.swift */; };
 		115490B92BBEC0860058F877 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115490B82BBEC0860058F877 /* AddView.swift */; };
+		115490BB2BBED4DE0058F877 /* ListDoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115490BA2BBED4DE0058F877 /* ListDoneView.swift */; };
 		11DE6FE92BBE9D8F0072E855 /* ToDoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DE6FE82BBE9D8F0072E855 /* ToDoListApp.swift */; };
 		11DE6FEB2BBE9D8F0072E855 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DE6FEA2BBE9D8F0072E855 /* ListView.swift */; };
 		11DE6FED2BBE9D920072E855 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DE6FEC2BBE9D920072E855 /* Assets.xcassets */; };
 		11DE6FF02BBE9D920072E855 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11DE6FEF2BBE9D920072E855 /* Preview Assets.xcassets */; };
 		11DE6FF52BBE9D920072E855 /* ToDoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 11DE6FF32BBE9D920072E855 /* ToDoList.xcdatamodeld */; };
 		11DE70022BBE9F050072E855 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DE70012BBE9F050072E855 /* DatabaseController.swift */; };
-		11DE70052BBE9F4E0072E855 /* TaskItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DE70042BBE9F4E0072E855 /* TaskItemModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		115490B12BBEA0280058F877 /* extension+TaskItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+TaskItemModel.swift"; sourceTree = "<group>"; };
-		115490B32BBEA0870058F877 /* extension+TaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "extension+TaskItem.swift"; sourceTree = "<group>"; };
 		115490B62BBEAEB40058F877 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
 		115490B82BBEC0860058F877 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		115490BA2BBED4DE0058F877 /* ListDoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDoneView.swift; sourceTree = "<group>"; };
 		11DE6FE52BBE9D8F0072E855 /* ToDoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		11DE6FE82BBE9D8F0072E855 /* ToDoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListApp.swift; sourceTree = "<group>"; };
 		11DE6FEA2BBE9D8F0072E855 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -32,7 +29,6 @@
 		11DE6FEF2BBE9D920072E855 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		11DE6FF42BBE9D920072E855 /* ToDoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoList.xcdatamodel; sourceTree = "<group>"; };
 		11DE70012BBE9F050072E855 /* DatabaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
-		11DE70042BBE9F4E0072E855 /* TaskItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,15 +42,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		115490B52BBEA0D20058F877 /* Extension */ = {
-			isa = PBXGroup;
-			children = (
-				115490B12BBEA0280058F877 /* extension+TaskItemModel.swift */,
-				115490B32BBEA0870058F877 /* extension+TaskItem.swift */,
-			);
-			path = Extension;
-			sourceTree = "<group>";
-		};
 		11DE6FDC2BBE9D8F0072E855 = {
 			isa = PBXGroup;
 			children = (
@@ -74,7 +61,6 @@
 		11DE6FE72BBE9D8F0072E855 /* ToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				11DE70032BBE9F3E0072E855 /* Data */,
 				11DE70002BBE9E310072E855 /* Resources */,
 				11DE6FFF2BBE9E240072E855 /* App */,
 				11DE6FFE2BBE9DE10072E855 /* Database */,
@@ -106,6 +92,7 @@
 			children = (
 				11DE6FEA2BBE9D8F0072E855 /* ListView.swift */,
 				115490B62BBEAEB40058F877 /* ListItemView.swift */,
+				115490BA2BBED4DE0058F877 /* ListDoneView.swift */,
 			);
 			name = List;
 			path = "../New Group/List";
@@ -142,15 +129,6 @@
 				11DE6FEC2BBE9D920072E855 /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		11DE70032BBE9F3E0072E855 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				11DE70042BBE9F4E0072E855 /* TaskItemModel.swift */,
-				115490B52BBEA0D20058F877 /* Extension */,
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -226,10 +204,8 @@
 				115490B72BBEAEB40058F877 /* ListItemView.swift in Sources */,
 				11DE70022BBE9F050072E855 /* DatabaseController.swift in Sources */,
 				115490B92BBEC0860058F877 /* AddView.swift in Sources */,
-				115490B42BBEA0870058F877 /* extension+TaskItem.swift in Sources */,
+				115490BB2BBED4DE0058F877 /* ListDoneView.swift in Sources */,
 				11DE6FEB2BBE9D8F0072E855 /* ListView.swift in Sources */,
-				115490B22BBEA0280058F877 /* extension+TaskItemModel.swift in Sources */,
-				11DE70052BBE9F4E0072E855 /* TaskItemModel.swift in Sources */,
 				11DE6FE92BBE9D8F0072E855 /* ToDoListApp.swift in Sources */,
 				11DE6FF52BBE9D920072E855 /* ToDoList.xcdatamodeld in Sources */,
 			);

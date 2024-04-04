@@ -31,16 +31,12 @@ struct AddView: View {
                 }
                 
                 Button {
-                    dataController.add(TaskItemModel(id: UUID(),
-                                                     order: 0,
-                                                     title: title.isEmpty ? "New task" : title,
-                                                     date: date,
-                                                     status: .pending))
-                    for task in dataController.fetchAll() {
-                        task.order += 1
-                        dataController.edit(task)
-                    }
-                    self.presentation.wrappedValue.dismiss()                     } label: {
+                    dataController.addNewTask(title: title.isEmpty ? "New task" : title,
+                                              date: date,
+                                              order: 0,
+                                              id: UUID())
+                    self.presentation.wrappedValue.dismiss()
+                } label: {
                         Text("Add")
                             .padding(.horizontal, 30)
                             .padding(.vertical, 10)

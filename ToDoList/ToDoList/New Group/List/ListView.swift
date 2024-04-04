@@ -12,57 +12,60 @@ struct ListView: View {
 
     @StateObject 
     private var dataController = DatabaseController.shared
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.order)],
-                  predicate: NSPredicate(format: "status == %@", "done"))
-    var doneItems: FetchedResults<TaskItem>
-    @FetchRequest(sortDescriptors: [SortDescriptor(\.order)],
-                  predicate: NSPredicate(format: "status == %@", "pending"))
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.order)])
+    var doneItems: FetchedResults<DoneItem>
+    @FetchRequest(sortDescriptors: [SortDescriptor(\.order)])
     var pendingItems: FetchedResults<TaskItem>
 
     var body: some View {
         NavigationView {
-            List(editActions: .move) {
-                if !doneItems.isEmpty {
-                    Section(header: Text(TaskStatus.done.rawValue)) {
-                        ForEach(doneItems) { item in
-                            ListItemView(item: item.toModel())
-                                .swipeActions {
-                                    Button {
-                                        item.status = "pending"
-                                        dataController.edit(item)
-                                    } label: {
-                                        Text("Undone")
-                                    }
-                                    
-                                    Button(role: .destructive) {
-                                        dataController.delete(item)
-                                    } label: {
-                                        Label("Delete", systemImage: "trash")
-                                    }
-                                }
-                        }
-                    }
-                }
-                
+            List {
                 if !pendingItems.isEmpty {
-                    Section(header: Text(TaskStatus.pending.rawValue)) {
+                    Section(header: Text("Pending")) {
                         ForEach(pendingItems) { item in
-                            let data = item.toModel()
-                            ListItemView(item: data)
+                            ListItemView(item: item)
                                 .swipeActions {
                                     Button {
-                                        item.status = "done"
-                                        dataController.edit(item)
+                                        dataController.addDone(item)
+                                        dataController.deletePendingTask(item)
                                     } label: {
                                         Text("Done")
                                     }
                                     
                                     Button(role: .destructive) {
-                                        dataController.delete(item)
+                                        dataController.deletePendingTask(item)
                                     } label: {
                                         Label("Delete", systemImage: "trash")
                                     }
                                 }
+                        }.onMove { from, to in
+                            guard let fromIndex = from.first else { return }
+                            dataController.rearrangePendingArray(fromIndex: fromIndex, toIndex: to)
+                        }
+                    }
+                }
+                
+                if !doneItems.isEmpty {
+                    Section(header: Text("Done")) {
+                        ForEach(doneItems) { item in
+                            ListDoneView(item: item)
+                                .swipeActions {
+                                    Button {
+                                        dataController.addNewTask(doneItem: item)
+                                        dataController.deleteDone(item)
+                                    } label: {
+                                        Text("Undone")
+                                    }
+                                    
+                                    Button(role: .destructive) {
+                                        dataController.deleteDone(item)
+                                    } label: {
+                                        Label("Delete", systemImage: "trash")
+                                    }
+                                }
+                        }.onMove { from, to in
+                            guard let fromIndex = from.first else { return }
+                            dataController.rearrangeDoneArray(fromIndex: fromIndex, toIndex: to)
                         }
                     }
                 }
